@@ -33,6 +33,8 @@ a{
     margin-right: 78px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
+    position: relative;
+    z-index: 999;
    
 }
 
@@ -110,5 +112,64 @@ button:hover{
     transform: skew(0.6 deg);
 }
 
+.about{
+    margin: 20px;
+    margin: 30px; 
+    position: relative;  
+}
+h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     
+}
+h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -17px; 
+    color: chocolate;
+    font-size: 30px;
+    font-weight: 800;
+}
 
+.A{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    box-shadow: 9px 1px 10px 3px #625d5d;
 
+}
+
+.A-left{
+    padding: 30px;
+}
+
+p{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 24px;
+}
+
+.projects{
+    border: 12px solid black;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    /* padding-left: 123px */
+
+}
+.Project{
+    border: 2px solid rgb(61, 10, 181);
+    height: 390px;
+    width: 238px;
+    margin: 45px;
+
+}
+.details{
+    border: 2px solid rgb(246, 7, 7);
+    height: 50px;
+    width: 60px;
+}
