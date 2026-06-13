@@ -5,32 +5,39 @@
     
 }
 
+header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
 .navbar{
     height: 60px;
     max-width: 100%;
     display: flex;
-    padding: 10px 40px 10px 40px;
+    padding: 10px 40px;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     box-shadow: 9px 1px 10px 3px #625d5d;
+    background-color: #ffffff;
+    
 }
 
 .logo{
-    margin-left: -287px;
     font-size: 25px;
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: chocolate;
 }
 
+.links{
+    gap: 90px;
+    display: flex;
+}
 
-
-a{
+.links a{
     text-decoration: none;
-    top: 0;
-    left: 0;
     color: black;
-    gap: 30px;
-    margin-right: 78px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
     position: relative;
@@ -87,7 +94,14 @@ span{
     margin-top: -58px;
 }
 
-img{
+.hero-img img{
+    height: 285px;
+    width: 388px;
+    box-shadow: 5px 7px 5px 0px #b7b2b2;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+.A-left img{
     height: 285px;
     width: 388px;
     box-shadow: 5px 7px 5px 0px #b7b2b2;
@@ -109,7 +123,7 @@ button{
 }
 
 button:hover{
-    transform: skew(0.6 deg);
+    transform:translate(1.23);
 }
 
 .about{
@@ -140,6 +154,7 @@ h3{
     justify-content: center;
     margin: 20px;
     box-shadow: 9px 1px 10px 3px #625d5d;
+    border-radius: 10px;
 
 }
 
@@ -147,29 +162,71 @@ h3{
     padding: 30px;
 }
 
-p{
-    font-family: Arial, Helvetica, sans-serif;
+.A-right p{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-style: italic;
     line-height: 24px;
 }
 
-.projects{
-    border: 12px solid black;
-}
 .container{
     display: flex;
     justify-content: center;
-    /* padding-left: 123px */
-
 }
 .Project{
-    border: 2px solid rgb(61, 10, 181);
     height: 390px;
     width: 238px;
     margin: 45px;
+    text-align: center;
+    font-size: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    border-radius: 10px;
+    border: 3px solid black;
+    width: 388px;
+    box-shadow: 5px 5px 3px 0px #858080;
+    transition: transform ease 0.3s 0s, box-shadow 0.3s ease;
 
 }
-.details{
-    border: 2px solid rgb(246, 7, 7);
-    height: 50px;
-    width: 60px;
+
+.Project:hover{
+    transform:scale(1.05);
+    box-shadow: 9px 1px 10px 3px #625d5d;
 }
+.details img{
+    height: 204px;
+    width: 205px;
+    margin-top: 10px;
+    padding-right: 14px;
+    border-radius: 20px;
+}
+
+#contact-me{
+    /* border: 5px solid rgb(253, 7, 7); */
+    height: 45vh;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#contact-me h2{
+    margin-top: 28px;
+}
+.c-container{
+   text-align: center;
+    line-height: 75px;
+}
+
+footer{
+    height: 20vh;
+    width: 100%;
+    background-color: rgb(25, 20, 20);
+    color: white;
+    margin: 0;
+    text-align: center;
+    line-height: 40px;
+    padding: 50px;
+    color: #625d5d;
+
+}
+
+
+
