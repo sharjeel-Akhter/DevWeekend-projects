@@ -120,10 +120,11 @@ button{
     font-weight: 500;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     cursor: pointer;
+    transition: transform ease 0.4s 0s;
 }
 
 button:hover{
-    transform:translate(1.23);
+    transform:scale(1.05);
 }
 
 .about{
