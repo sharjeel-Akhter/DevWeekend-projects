@@ -1,4 +1,4 @@
-let answers = ["A","A","A","A"];
+const answers = ["B", "A", "C", "D", "C"];
 
 let form = document.querySelector(".quiz-form");
 let result = document.querySelector(".result");
@@ -8,10 +8,10 @@ let isSubmit = false;
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
-        const userAns = [form.q1.value, form.q2.value, form.q3.value, form.q4.value];
+        const userAns = [form.q1.value, form.q2.value, form.q3.value, form.q4.value, form.q5.value];
 
         if (isSubmit) return;
-        
+
         isSubmit = true;
         userAns.forEach((ans, index) => {
             if (ans === answers[index]) {
