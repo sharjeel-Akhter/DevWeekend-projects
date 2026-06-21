@@ -1,15 +1,15 @@
-const urlA = 'https://newsapi.org/v2/everything?q=business&sortBy=publishedAt';
 const card = document.querySelector(".cards");
 const categorySpan = document.querySelectorAll(".sections span");
+const sections = document.querySelector(".sections")
+
 const backUpImg = "https://images.unsplash.com/photo-1495020689067-958852a7765e?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169";
 
-
+const urlA = 'https://newsapi.org/v2/everything?q=business&sortBy=publishedAt';
 const BaseUrl = "https://newsapi.org/v2/";
-
-
 const apiKey = '&apiKey=713337346dc54dd6bb443af006b0e18b';
 
-const sections = document.querySelector(".sections")
+
+
 
 function urlRequest(url){
     req(url).then(data => 
@@ -45,7 +45,7 @@ async function req(url) {
     
 }
 
-// req(newsD+apiKey).then( data => console.log(data) )
+
 
 
 sections.addEventListener("click", (event) => {
