@@ -14,10 +14,13 @@
     list-style: none;
 }
 
+body{
+    background-color: #1A1C20;
+}
+
 .outer{
     width: 100%;
     min-height: 100vh;
-    background-color: #F5F7FA;
     padding: 30px;
 }
 .inner{
@@ -28,6 +31,7 @@
 .header{
     text-align: center;
     margin-top: 30px;
+    color:#F5F7FA;
 }
 
 .header .title{

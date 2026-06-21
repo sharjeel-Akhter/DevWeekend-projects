@@ -4,6 +4,8 @@ const sections = document.querySelector(".sections")
 
 const backUpImg = "https://images.unsplash.com/photo-1495020689067-958852a7765e?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169";
 
+let backUpText = "No Description Yet! Click on Read Article to read more!" 
+
 const urlA = 'https://newsapi.org/v2/everything?q=business&sortBy=publishedAt';
 const BaseUrl = "https://newsapi.org/v2/";
 const apiKey = '&apiKey=713337346dc54dd6bb443af006b0e18b';
@@ -15,10 +17,10 @@ function urlRequest(url){
     req(url).then(data => 
         data.articles.forEach(item => {
             card.innerHTML +=`<div class="card">
-                        <img src="${item.urlToImage ? item.urlToImage :backUpImg}" alt="">
+                        <img src="${item.urlToImage || backUpImg}" alt="">
                         <div class="information">
                             <p class="title">${item.title}</p>
-                            <p class="description">${item.description}</p>
+                            <p class="description">${item.description ? item.description: backUpText}</p>
                             <p class="time">
                             <span>${item.publishedAt.replace("Z", "").split("T")[1]}</span>
                             <span>${item.publishedAt.replace("Z", "").split("T")[0]}</</span>
