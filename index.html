@@ -4,10 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-decoration: none;
+        }
+        body{
+            background-color: rgb(16, 3, 3);
+            color: aliceblue;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 16px;
+        }
+ 
+        .header{
+            text-align: center;
+            margin: 40px 10px;
+            background-color: white;
+            color: black;
+            padding: 30px;
+            box-shadow: 3px 4px 3px 5px #fdfbfb;
+
+        }
+        .header .title{
+            margin: 15px;
+            font-size: 35px;
+        }
+        .header .sub-title{
+            margin: 15px;
+            font-size: 25px;
+        }
+        .projects{
+            display: flex;
+            /* margin: auto; */
+        }
+        .project{
+            margin: 20px;
+            height: 300px;
+            background-color: white;
+            width: 400px;
+            text-align: center;
+            box-shadow: 3px 4px 3px 5px #fdfbfb;
+            color: rgb(24, 24, 110);
+            font-size: 22px;
+        }
+        .project img{
+            margin-top: 20px;
+            height: 150px;
+            width: 250px;
+            border-radius: 10px;
+        }
+        .project .title{
+            margin: 20px auto 20px auto;
+
+        }
+        .project a{
+            padding: 10px;
+            margin-top: 40px;
+            border: none;
+            background-color: brown;
+            color: antiquewhite;
+            font-weight: 300;
+            border-radius: 10px;
+        }
+
+        @media (max-width:800px) {
+            .projects{
+                flex-wrap: wrap;
+            }
+            .project{
+                margin: auto;
+                margin-bottom: 30px;
+                width: 300px;
+            }
+        }
+      
+    </style>
 </head>
 <body>
-    <a href="simple-portfolio/index.html">simple-portfolio</a><br><br>
+    <main>
+        <div class="header">
+            <p class="title">Dev-Weekend Projects</p>
+            <p class="sub-title">Sharjeel Akhter</p>
+        </div>
+
+        <div class="projects">
+            <div class="project" id="P1">
+                <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydGZvbGlvfGVufDB8fDB8fHww" alt="">
+                <div class="title">Simple Portfolio</div>
+                <a href="simple-portfolio/index.html">Click Me</a>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fFF1aXp8ZW58MHx8MHx8fDA%3D" alt="">
+                <div class="title">Quiz App</div>
+                <a href="quiz-js/index.html">Click Me</a>
+            </div>
+            <div class="project">
+                <img src="https://plus.unsplash.com/premium_photo-1689701711439-e54f039f8d97?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fE5ld3N8ZW58MHx8MHx8fDA%3D" alt="">
+                <div class="title">News App</div>
+                <a href="news-js/index.html">Click Me</a>
+            </div>
+        </div>
+    </main>
+    <!-- <a href="simple-portfolio/index.html">simple-portfolio</a><br><br>
     <a href="quiz-js/index.html">Quiz-App</a><br><br>
-    <a href="news-js/index.html">News-App</a>
+    <a href="news-js/index.html">News-App</a> -->
 </body>
 </html>
