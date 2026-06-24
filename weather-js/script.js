@@ -4,28 +4,34 @@ let searchBtn = document.querySelector("button");
 let errorSec = document.querySelector(".error");
 let messageDiv = document.querySelector(".message")
 
-let isRun = false;
 
 const BASE_URL = "https://api.openweathermap.org/data/2.5/weather/";
 const API_KEY = "appid=172ebc8e19cfaad7b063aaf93399510e";
 
-
-
-searchBtn.addEventListener("click" , () => {
+searchBtn.addEventListener("click", () => {
     let city = inputs.value.trim().toLowerCase();
-    if(!city){
-        error("Invalid City")
-    }
     errorSec.textContent = "";
     card.classList.add("hide");
     fetchWeather(city);
     inputs.value = "";
 })
 
+inputs.addEventListener("keydown", (e) => {
+    if (e.key == "Enter") {
+        let city = inputs.value.trim().toLowerCase();
 
-async function fetchWeather(city){
+        errorSec.textContent = "";
+        card.classList.add("hide");
+        fetchWeather(city);
+        inputs.value = "";
+    }
+
+})
+
+
+async function fetchWeather(city) {
     const url = `${BASE_URL}?q=${city}&${API_KEY}&units = metric`;
-    try{
+    try {
         messageDiv.classList.remove("hide");
         let response = await fetch(url);
         let data = await response.json();
@@ -33,33 +39,33 @@ async function fetchWeather(city){
         getData(data);
 
 
-}   
-    catch(err){
+    }
+    catch (err) {
         error(err);
     }
-    }
+}
 
-function error(err){
+function error(err) {
 
     errorSec.textContent = `${err.message}`;
 }
 
 
-function getData(data){
+function getData(data) {
     let name = data.name;
     let temp = Math.round(data.main.temp - 273.15);
     let feels = Math.round(data.main.feels_like - 273.15);
     let humidity = data.main.humidity;
-    let visible = data.visibility?(data.visibility / 1000).toFixed(1) : "NA";
+    let visible = data.visibility ? (data.visibility / 1000).toFixed(1) : "NA";
     let wind = (data.wind.speed * 3.6).toFixed(1);
     let description = data.weather[0].description;
     let iconCode = data.weather[0].icon;
 
-let date = new Date();
+    let date = new Date();
 
- let day = date.toLocaleDateString("en-us", {weekday:'long'});
-let dates = date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
-let time = date.toLocaleTimeString("en-US", { hour:"2-digit", minute:"2-digit" });
+    let day = date.toLocaleDateString("en-us", { weekday: 'long' });
+    let dates = date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    let time = date.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
 
     card.classList.remove("hide");
     card.innerHTML = `<div class="head">
