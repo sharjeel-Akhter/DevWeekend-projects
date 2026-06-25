@@ -28,13 +28,37 @@ inputs.addEventListener("keydown", (e) => {
 
 })
 
+function checkErrors(data) {
+    
+   switch (data.cod) {
+        case "404":
+            messageDiv.classList.add("hide");
+            throw new Error("City not found");
+        case "400":
+            messageDiv.classList.add("hide");   
+            throw new Error("Please enter a city name");
+        case "401":
+            messageDiv.classList.add("hide");   
+            throw new Error("Invalid API key");
+        default:
+            return data;
+    }
+    
+}
 
 async function fetchWeather(city) {
     const url = `${BASE_URL}?q=${city}&${API_KEY}&units = metric`;
     try {
         messageDiv.classList.remove("hide");
         let response = await fetch(url);
+        console.log(response);
+        // if(!response.ok){
+        //     messageDiv.classList.add("hide");
+        //     throw new Error("Network response was not ok");
+        // }
+        // checkErrors(await response.json());
         let data = await response.json();
+        checkErrors(data);
         messageDiv.classList.add("hide");
         getData(data);
 
