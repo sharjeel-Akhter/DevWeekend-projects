@@ -3,13 +3,20 @@ import FunctionalClassComp from "./components/FunctionalClassComp";
 import Greetings from "./components/Greetings";
 import UserCard from "./components/UserCard";
 import Input from "./components/Input";
+import Update from "./components/use-effect";
+import Timer from "./components/use-ref";
+
+
 function App() {
   const username = "sharjeel";
 
   return (
     <>
-    <h2>Hello {username}</h2>
-    <FunctionalClassComp />
+    
+    {/* <Timer/> */}
+    {/* <Update /> */}
+    {/* <h2>Hello {username}</h2>
+    <FunctionalClassComp /> */}
     {/* <Greetings name={"Sharjeel"} age={20}/> */}
 
 
