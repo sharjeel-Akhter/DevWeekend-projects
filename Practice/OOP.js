@@ -103,4 +103,20 @@ class MathUtils {
 // MathUtils.divide(3);
 // console.log(MathUtils.result); // Output: 4
 
+// let s = "A man, a plan, a canal: Panama"
 
+// let a = s.toLowerCase().replace(/[^a-z]/g, "")
+//     let arr = a.split("");
+// let lastIndex = arr[(arr.length - 1)];
+// console.log(lastIndex)
+// console.log(a)
+// console.log(typeof a)
+
+let y = " ";
+let z = y.toLowerCase().replace(/[^a-z]/g, "").trim().split("");
+console.log("conosloling y")
+console.log(y)
+console.log("conosloling z")
+console.log(z)
+console.log("conosloling z length")
+console.log(z.length)
