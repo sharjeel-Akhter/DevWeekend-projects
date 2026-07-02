@@ -1,10 +1,12 @@
 import "./App.css";
-import FunctionalClassComp from "./components/FunctionalClassComp";
-import Greetings from "./components/Greetings";
-import UserCard from "./components/UserCard";
-import Input from "./components/Input";
-import Update from "./components/use-effect";
-import Timer from "./components/use-ref";
+// import FunctionalClassComp from "./components/FunctionalClassComp";
+// import Greetings from "./components/Greetings";
+// import UserCard from "./components/UserCard";
+// import Input from "./components/Input";
+// import Update from "./components/use-effect";
+// import Timer from "./components/use-ref";
+// import Header from "./components/Header";
+import CustomCounter from "./components/CustomCounter";
 
 
 function App() {
@@ -12,7 +14,8 @@ function App() {
 
   return (
     <>
-    
+    <CustomCounter/>
+    {/* <Header/> */}
     {/* <Timer/> */}
     {/* <Update /> */}
     {/* <h2>Hello {username}</h2>
