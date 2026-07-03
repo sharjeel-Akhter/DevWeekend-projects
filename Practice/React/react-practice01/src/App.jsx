@@ -1,3 +1,4 @@
+import { Route } from "react-router";
 import "./App.css";
 // import FunctionalClassComp from "./components/FunctionalClassComp";
 // import Greetings from "./components/Greetings";
@@ -6,7 +7,9 @@ import "./App.css";
 // import Update from "./components/use-effect";
 // import Timer from "./components/use-ref";
 // import Header from "./components/Header";
-import CustomCounter from "./components/CustomCounter";
+// import CustomCounter from "./components/CustomCounter";
+
+
 
 
 function App() {
@@ -14,7 +17,10 @@ function App() {
 
   return (
     <>
-    <CustomCounter/>
+    <h2>Home Page</h2>
+    <a href="/contact">Contact</a>
+    <a href="/about">About</a>
+    {/* <CustomCounter/> */}
     {/* <Header/> */}
     {/* <Timer/> */}
     {/* <Update /> */}
