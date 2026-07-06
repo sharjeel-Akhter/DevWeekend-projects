@@ -7,5 +7,5 @@ function Greetings({name, age}) {
         </div>
     );
 }
-
+ 
 export default Greetings;

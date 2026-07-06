@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-
 const UserCard = ({ name, avatar, email }) => {
     return (
         <div style={{
