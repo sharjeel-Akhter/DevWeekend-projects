@@ -1,5 +1,6 @@
 import { Route } from "react-router";
 import "./App.css";
+import Timer from "./components/Timer";
 // import FunctionalClassComp from "./components/FunctionalClassComp";
 // import Greetings from "./components/Greetings";
 // import UserCard from "./components/UserCard";
@@ -17,9 +18,10 @@ function App() {
  
   return (
     <>
-    <h2>Home Page</h2>
+    <Timer/>
+    {/* <h2>Home Page</h2>
     <a href="/contact">Contact</a>
-    <a href="/about">About</a>
+    <a href="/about">About</a> */}
     {/* <CustomCounter/> */}
     {/* <Header/> */}
     {/* <Timer/> */}

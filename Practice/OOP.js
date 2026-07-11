@@ -112,11 +112,38 @@ class MathUtils {
 // console.log(a)
 // console.log(typeof a)
 
-let y = " ";
-let z = y.toLowerCase().replace(/[^a-z]/g, "").trim().split("");
-console.log("conosloling y")
-console.log(y)
-console.log("conosloling z")
-console.log(z)
-console.log("conosloling z length")
-console.log(z.length)
+// let y = " ";
+// let z = y.toLowerCase().replace(/[^a-z]/g, "").trim().split("");
+// console.log("conosloling y")
+// console.log(y)
+// console.log("conosloling z")
+// console.log(z)
+// console.log("conosloling z length")
+// console.log(z.length)
+
+
+// Input  : arr[] = {1, 4, 2, 10, 23, 3, 1, 0, 20}, k = 4 
+                //  0   1  2  3   4   5  6  7   8
+// Output : 39
+
+
+function maxSubArray(arr, k){
+    let maxOfSub = 0;
+    let maxSum = 0;
+  
+
+    for(let i = 0; i<k; i++){
+        maxOfSub += arr[i];
+    }
+
+    maxSum = maxOfSub
+
+    for(let i = k; i<arr.length; i++){
+        maxOfSub += arr[i] - arr[i-k];
+        maxSum = Math.max(maxOfSub, maxSum);
+
+    }
+    return maxSum
+} 
+
+console.log(maxSubArray([1, 4, 2, 10, 23, 3, 1, 0, 20], 4));
