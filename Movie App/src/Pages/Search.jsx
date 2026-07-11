@@ -1,10 +1,10 @@
 import React from 'react';
 
-export function Search(props) {
+export function Search() {
+
     return (
-        <main>
-            Search
-        </main>
+        <>
+        </>
     );
 }
 
