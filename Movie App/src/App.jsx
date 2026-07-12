@@ -11,7 +11,7 @@ function App() {
     <ThemeProvider>
       <div className="min-h-screen flex flex-col">
               <Header />
-      <main className="bg-white flex-grow">
+      <main className="bg-white grow">
       <AllRoutes />
       </main>
       <Footer/>
