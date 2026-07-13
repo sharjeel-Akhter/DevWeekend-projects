@@ -5,7 +5,9 @@ function Rootlayout() {
     return (
         <div>
             <Headers />
+            <main>
             <Outlet />
+            </main>
         </div>
     );
 }

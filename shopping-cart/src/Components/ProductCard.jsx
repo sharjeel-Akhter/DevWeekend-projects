@@ -2,18 +2,13 @@ import useCartContext from '../contexts/useCartContext';
 import { useState } from 'react';
 
 export const ProductCard = ({product}) => {
-  const {name, price, image} = product;
-  const [isAdded, setIsAdded] = useState(false);
-  let {cartItems, setCartItems, AddToCart, setProductCount, RemoveItem} = useCartContext();
+  const {name, price, image, id} = product;
+  
+  const {cartItems, AddToCart} = useCartContext();
 
-   AddToCart = (item) => {
-    setIsAdded(true)
-    const cartEntry = { ...item, cartItemId: Date.now() };
-    setCartItems((prev) => [...prev, cartEntry]);
-    setProductCount((prevCount) => prevCount + 1);
-  }
+  const isAdded = cartItems.some((item) => item.id == product.id);
 
-console.log(cartItems);
+
 
   return (
     

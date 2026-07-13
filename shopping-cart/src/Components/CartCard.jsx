@@ -2,13 +2,9 @@ import useCartContext from "../contexts/useCartContext";
 
 export const CartCard = ({product}) => {
   const {name, price, image, cartItemId} = product;
-  let {cartItems, setCartItems, RemoveItem, setProductCount} = useCartContext();
+  const {cartItems,RemoveItem} = useCartContext();
 
-  RemoveItem = (id) => {
-    const updatedCartItems = cartItems.filter((item) => item.cartItemId !== id);
-    setCartItems(updatedCartItems);
-    setProductCount((prevCount) => prevCount - 1);
-  };
+
   return (
     <>
     <div className="flex items-center gap-4 p-4 border border-gray-300 rounded-lg shadow-md mb-4">
