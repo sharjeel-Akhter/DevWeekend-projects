@@ -1,4 +1,4 @@
-# React Architecture Guide (Medium Level)
+# React Architecture Explanation
 
 ## Overview
 
