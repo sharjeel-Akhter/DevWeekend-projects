@@ -11,8 +11,7 @@ const toggleTheme = () => {
 
 }
 
-console.log(theme)
-console.log(localStorage.getItem('theme'))
+
 
 useEffect(() => {
     const html = document.documentElement;
@@ -23,7 +22,8 @@ useEffect(() => {
         html.classList.remove('dark');
     }   
     localStorage.setItem('theme', theme);
-
+console.log(theme)
+console.log(localStorage.getItem('theme'))
 }, [theme]);
 
 
