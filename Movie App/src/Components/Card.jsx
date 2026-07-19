@@ -6,7 +6,7 @@ import movieBg from "../assets/movie.jpg";
 
 function Card({movie}) {
   return (
-    <div className="max-w-sm rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-md overflow-hidden">
+    <div className="max-w-sm rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-md overflow-hidden ">
               <Link to={`/movie/${movie.id}`}>
              <img src={movie.poster_path ?`https://image.tmdb.org/t/p/w500/${movie.poster_path}`: movieBg } alt="Movie" className="w-full h-95 object-cover"/>
         </Link>
