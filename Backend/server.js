@@ -1,8 +1,13 @@
 const app = require("./src/app")
+const connectDb = require("./src/db/db")
+
+connectDb();
+
+app.listen(3000, ()=>{
+    console.log("Server Started at 3000")
+})
 
 const notes = []
-
-
 
 // app.post('/notes', (req, res) => {
 //     notes.push(req.body);
@@ -40,8 +45,3 @@ const notes = []
 //         message:"note updated successfully"
 //     })
 // })
-
-
-app.listen(3000, ()=>{
-    console.log("Server Started at 3000")
-})
