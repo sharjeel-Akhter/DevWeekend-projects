@@ -11,7 +11,7 @@ function App() {
     <>
   <BrowserRouter>
     <Routes>
-      <Route path='/' element={<h1 className='text-red-700'>Home</h1>}/>
+      <Route path='/' element={<Feed/>}/>
       <Route path='/create' element={<CreatePost/>}/>
       <Route path='/feed' element= {<Feed/>}/>
     </Routes>
