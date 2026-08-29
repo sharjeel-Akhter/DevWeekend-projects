@@ -1,0 +1,15 @@
+{
+  "name": "backendserver",
+  "version": "1.0.0",
+  "description": "starting backend with node.js and express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "sharjeel.me",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
