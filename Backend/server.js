@@ -7,7 +7,7 @@ app.listen(3000, ()=>{
     console.log("Server Started at 3000")
 })
 
-const notes = []
+// const notes = []
 
 // app.post('/notes', (req, res) => {
 //     notes.push(req.body);
