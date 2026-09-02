@@ -1,1 +1,0 @@
-connection, schema, model, using model doing crud operations
