@@ -10,10 +10,10 @@ app.use(logger)
 app.use("/users", userRoutes)
 // app.use("/task", taskRoutes)
 
-app.use((err, req, res, next) => {
-    res.status(500).json({
-        message: "Something went wrong"
-    });
-});
+// app.use((err, req, res, next) => {
+//     res.status(500).json({
+//         message: "Something went wrong"
+//     });
+// });
 
 module.exports = app
