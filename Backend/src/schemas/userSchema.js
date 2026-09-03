@@ -5,4 +5,11 @@ const userSchema = joi.object({
     Email: joi.string().email().required()
 })
 
-module.exports = userSchema
+const paramsScehma = joi.object({
+    id:joi.string().min(3).required()
+})
+
+module.exports = {
+    userSchema,
+    paramsScehma
+}

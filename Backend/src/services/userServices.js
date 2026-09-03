@@ -14,7 +14,20 @@ const getUsers = async () => {
     return users;
 }
 
+const getUser = async (id) => {
+
+        const user =  await User.findById(id)
+
+        if(!user){
+            throw new Error("User Not Found!")
+        }
+
+        return user
+
+}
+
 module.exports = {
     createUser,
-    getUsers
+    getUsers,
+    getUser
 }

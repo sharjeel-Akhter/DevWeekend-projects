@@ -1,20 +1,18 @@
+const validator = (schema, source) => {
 
-const validator = (schema) => {
+    
     return (req, res, next) =>{
-        const { error } = schema.validate(req.body, {
+        console.log("SOURCE:", source);
+        console.log("DATA:", req[source]);
+        const { error } = schema.validate(req[source], {
             abortEarly:false
         })
         
-        if(error){
-            
-            const errors = error.details.map((detail)=>{
-                return detail.message
-            })
-            console.log(error)
-            
+        if(error){   
+            console.log("inside Validator")         
             return res.status(400).json({
                 message:"validation failed",
-                errors
+                errors: error.details.map(detail => detail.message)
             })
         }
         next();

@@ -13,16 +13,27 @@ const getUsers = async (req, res) => {
         console.log("Error", error)
 
         res.status(500).json({
-            message:"Something went wrong"
+            message:"Something went wrong in finding users"
         })
     } 
 }
+const getUser = async (req, res) => {
+    try {
+        const user = await userServices.getUser(req.params.id)
 
+            res.status(200).json({
+            message:"user Fetched SuccessFully",
+            user
+        })
+    } catch (error) {
+                res.status(404).json({
+                    message:"User Not Found"
+                })
+    }
+}
 const postUser = async (req, res) => {
     try {
         const user = await userServices.createUser(req.body)
-
-        console.log(user)
 
         res.status(201).json({
             message: "User Created",
@@ -32,12 +43,13 @@ const postUser = async (req, res) => {
         console.log("Error Creating User", error);
 
         res.status(500).json({
-            message:"Internal Server Error"
+            message:"Internal Server Error while creating user"
         })
     }
 }
 
 module.exports = {
     getUsers,
-    postUser
+    postUser,
+    getUser
 }
