@@ -1,19 +1,15 @@
 const express = require('express');
 const logger = require('./middlewares/logger')
 const userRoutes = require('./routes/userRoutes')
-
+const errorHandler = require('./middlewares/errorHandler')
 const app = express()
 app.use(express.json())
 
 app.use(logger)
 
 app.use("/users", userRoutes)
-// app.use("/task", taskRoutes)
 
-// app.use((err, req, res, next) => {
-//     res.status(500).json({
-//         message: "Something went wrong"
-//     });
-// });
+
+app.use(errorHandler)
 
 module.exports = app

@@ -17,7 +17,7 @@ const getUsers = async (req, res) => {
         })
     } 
 }
-const getUser = async (req, res) => {
+const getUser = async (req, res, next) => {
     try {
         const user = await userServices.getUser(req.params.id)
 
@@ -26,12 +26,10 @@ const getUser = async (req, res) => {
             user
         })
     } catch (error) {
-                res.status(404).json({
-                    message:"User Not Found"
-                })
+                next(error)
     }
 }
-const postUser = async (req, res) => {
+const postUser = async (req, res, next) => {
     try {
         const user = await userServices.createUser(req.body)
 
@@ -39,12 +37,14 @@ const postUser = async (req, res) => {
             message: "User Created",
             user
         })
+
     } catch (error) {
         console.log("Error Creating User", error);
 
-        res.status(500).json({
-            message:"Internal Server Error while creating user"
-        })
+        next(error)
+        // res.status(500).json({
+        //     message:"Internal Server Error while creating user"
+        // })
     }
 }
 
