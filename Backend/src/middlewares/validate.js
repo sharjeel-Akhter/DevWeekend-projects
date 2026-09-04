@@ -2,8 +2,6 @@ const validator = (schema, source) => {
 
     
     return (req, res, next) =>{
-        console.log("SOURCE:", source);
-        console.log("DATA:", req[source]);
         const { error } = schema.validate(req[source], {
             abortEarly:false
         })

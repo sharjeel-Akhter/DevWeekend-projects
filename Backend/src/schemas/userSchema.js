@@ -9,7 +9,12 @@ const paramsScehma = joi.object({
     id:joi.string().min(3).required()
 })
 
+const updateUserSchema = joi.object({
+    Email:joi.string().email().required()
+});
+
 module.exports = {
     userSchema,
-    paramsScehma
+    paramsScehma,
+    updateUserSchema
 }

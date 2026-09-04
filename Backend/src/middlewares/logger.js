@@ -1,14 +1,17 @@
 const fs = require("fs")
 
 const logger = (req, res, next) => {
-    fs.appendFile("./logs.txt",`${req.url} ${req.method} ${new Date().toLocaleString()}\n`,
-        (err) => {
-            if (err) {
-                return next(err);
+    const start = Date.now()
+    res.on('finish', () => {
+        fs.appendFile("./logs.txt", `${new Date().toLocaleString()} ${req.originalUrl} ${req.method} ${Date.now() - start}ms status:${res.statusCode}\n`,
+            (err) => {
+                if (err) {
+                    return next(err);
+                }
             }
-            next();
-        }
-    );
+        );
+    })
+    next();
 };
 
 module.exports = logger

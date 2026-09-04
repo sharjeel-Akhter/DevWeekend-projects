@@ -53,3 +53,30 @@
 /users POST 9/3/2026, 8:45:08 PM
 /users POST 9/3/2026, 8:50:07 PM
 /users POST 9/3/2026, 8:50:58 PM
+
+9/4/2026, 5:11:04 PM /users POST 454ms status:201
+9/4/2026, 5:14:11 PM /users POST 267ms status:400
+9/4/2026, 5:15:20 PM /users GET 263ms status:200
+9/4/2026, 5:15:38 PM /users/6a9ab55870fcf107fc61a2fe GET 460ms status:200
+9/4/2026, 5:16:08 PM /users/6a9ab55870fcf107fc61a2ft GET 8ms status:500
+9/4/2026, 5:16:38 PM /users/6a9ab55870fcf107fc61a2fe GET 184ms status:200
+9/4/2026, 5:16:46 PM /users/6a9ab55870fcf107fc61a2f0 GET 258ms status:404
+9/4/2026, 5:17:31 PM /users/6a9ab55870fcf107fc61a2f0 GET 313ms status:404
+9/4/2026, 5:17:46 PM /users/6a9ab55870fcf107fc61a2fe GET 190ms status:200
+9/4/2026, 5:24:24 PM /users/6a9ab55870fcf107fc61a2fe DELETE 235ms status:500
+9/4/2026, 5:25:02 PM /users/6a9ab55870fcf107fc61a2fe DELETE 359ms status:200
+9/4/2026, 5:43:27 PM /users GET 426ms status:200
+9/4/2026, 5:44:52 PM /users/6a97c087fbda9cd0eff96419 GET 301ms status:200
+9/4/2026, 5:45:59 PM /users/6a97c087fbda9cd0eff96419 PATCH 8ms status:400
+9/4/2026, 5:46:19 PM /users/6a97c087fbda9cd0eff96419 PATCH 4ms status:500
+9/4/2026, 5:47:56 PM /users/6a97c087fbda9cd0eff96419 PATCH 95ms status:404
+9/4/2026, 5:48:59 PM /users/6a97f3c19b6a29a0d6e8d9f7 PATCH 7ms status:404
+9/4/2026, 5:49:15 PM /users GET 204ms status:200
+9/4/2026, 5:51:14 PM /users/6a97f3c19b6a29a0d6e8d9f7 PATCH 227ms status:404
+9/4/2026, 5:51:53 PM /users/6a97f334fbf36b1bedb2d2d8 PATCH 7ms status:404
+9/4/2026, 5:59:02 PM /users/6a97f334fbf36b1bedb2d2d8 PATCH 255ms status:500
+9/4/2026, 5:59:37 PM /users/6a97f334fbf36b1bedb2d2d8 PATCH 15ms status:500
+9/4/2026, 6:01:27 PM /users/6a97f334fbf36b1bedb2d2d8 PATCH 438ms status:200
+9/4/2026, 6:02:24 PM /users/6a97f334fbf36b1bedb2d2d8 PATCH 435ms status:200
+9/4/2026, 6:02:45 PM /users/6a97f334fbf36b1bedb2d2d8 DELETE 196ms status:200
+9/4/2026, 6:03:03 PM /users/6a97f334fbf36b1bedb2d2d8 GET 326ms status:404

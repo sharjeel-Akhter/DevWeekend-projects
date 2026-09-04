@@ -1,7 +1,7 @@
 const User = require("../models/userModel")
 const userServices = require("../services/userServices")
 
-const getUsers = async (req, res) => {
+const getUsers = async (req, res, next) => {
     try {
         const users = await userServices.getUsers()
 
@@ -18,6 +18,7 @@ const getUsers = async (req, res) => {
     } 
 }
 const getUser = async (req, res, next) => {
+
     try {
         const user = await userServices.getUser(req.params.id)
 
@@ -47,9 +48,33 @@ const postUser = async (req, res, next) => {
         // })
     }
 }
+const delUser = async (req, res, next) => {
+    try {
+        await userServices.delUser(req.params.id)
+
+        res.status(200).json({
+            message:"User Deleted SuccessFully"
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+const updateUser = async (req, res, next) => {
+    try {
+       const user =  await userServices.updateUser(req.params.id, req.body.Email)
+        res.status(200).json({
+            message:"User updated Successfully",
+            user
+        })
+    } catch (error) {
+        next(error)
+    }
+}
 
 module.exports = {
     getUsers,
     postUser,
-    getUser
+    getUser,
+    delUser,
+    updateUser
 }
