@@ -80,3 +80,5 @@
 9/4/2026, 6:02:24 PM /users/6a97f334fbf36b1bedb2d2d8 PATCH 435ms status:200
 9/4/2026, 6:02:45 PM /users/6a97f334fbf36b1bedb2d2d8 DELETE 196ms status:200
 9/4/2026, 6:03:03 PM /users/6a97f334fbf36b1bedb2d2d8 GET 326ms status:404
+9/4/2026, 6:28:12 PM /users GET 486ms status:200
+9/4/2026, 6:32:01 PM /users GET 428ms status:200

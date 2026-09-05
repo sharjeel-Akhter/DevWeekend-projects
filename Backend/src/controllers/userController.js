@@ -1,9 +1,15 @@
 const User = require("../models/userModel")
 const userServices = require("../services/userServices")
 
+const logger = require('../utils/logger')
+
 const getUsers = async (req, res, next) => {
     try {
         const users = await userServices.getUsers()
+        logger.debug("Debug message");
+        logger.info("Info message");
+        logger.warn("Warning message");
+        logger.error("Error message");
 
         res.status(200).json({
             message:"users Fetched SuccessFully",
