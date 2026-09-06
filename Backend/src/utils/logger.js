@@ -4,7 +4,7 @@ const logger = pino(
     {
         level: "info"
     },
-    pino.destination("../logs/app.log")
+    pino.destination("./app.log")
 );
 
 module.exports = logger

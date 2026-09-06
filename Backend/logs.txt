@@ -82,3 +82,8 @@
 9/4/2026, 6:03:03 PM /users/6a97f334fbf36b1bedb2d2d8 GET 326ms status:404
 9/4/2026, 6:28:12 PM /users GET 486ms status:200
 9/4/2026, 6:32:01 PM /users GET 428ms status:200
+9/5/2026, 2:11:25 PM /users GET 508ms status: 200
+9/5/2026, 2:13:42 PM /users/6a9995cc5884d204675e7b51 GET 590ms status: 200
+9/5/2026, 2:15:00 PM /users/6a9995cc5884d204675e7b51 DELETE 216ms status: 200
+9/5/2026, 2:23:24 PM /users GET 548ms status: 200
+9/5/2026, 2:24:03 PM /users/6a9995cc5884d204675e7b51 GET 190ms status: 404
