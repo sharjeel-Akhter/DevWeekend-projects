@@ -6,8 +6,7 @@ const validator = (schema, source) => {
             abortEarly:false
         })
         
-        if(error){   
-            console.log("inside Validator")         
+        if(error){           
             return res.status(400).json({
                 message:"validation failed",
                 errors: error.details.map(detail => detail.message)
