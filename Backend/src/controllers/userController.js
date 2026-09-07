@@ -2,6 +2,7 @@ const User = require("../models/userModel")
 const userServices = require("../services/userServices")
 
 const logger = require('../utils/logger')
+const jwt = require("jsonwebtoken")
 
 const getUsers = async (req, res, next) => {
     try {
@@ -77,10 +78,40 @@ const updateUser = async (req, res, next) => {
     }
 }
 
+const registerUser = async (req, res, next) => {
+   const user =  await userServices.registerUser(req.body)
+
+    res.status(201).json({
+        message:"User Registered SuccessFully",
+        Username:user.userName,
+        Email:user.Email
+    })
+}
+
+const loginUser = async (req, res, next) => {
+
+    const user = await userServices.loginUser(req.body)
+
+    const token = jwt.sign({
+        id:user._id
+    },process.env.JWT_SECRET)
+
+    res.cookie("token", token)
+
+    res.status(200).json({
+        message:"User Login Successfully",
+        id:user._id,
+        name:user.userName,
+        email:user.Email
+    })
+}
+
 module.exports = {
     getUsers,
     postUser,
     getUser,
     delUser,
-    updateUser
+    updateUser,
+    registerUser,
+    loginUser
 }

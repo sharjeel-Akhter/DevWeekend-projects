@@ -1,6 +1,10 @@
 const User = require("../models/userModel")
+const registerModel = require('../models/registerModel')
 
 const AppError = require('../utils/appError')
+
+const bcrypt = require('bcrypt')
+
 
 const createUser = async (data) => {
     const user = await User.create({
@@ -33,7 +37,7 @@ const getUser = async (id) => {
 
 }
 const delUser = async (id) => {
-    await User.findByIdAndDelete(id)
+    await registerModel.findByIdAndDelete(id)
 }
 const updateUser = async (id, message) => {
     try {
@@ -53,10 +57,46 @@ const updateUser = async (id, message) => {
     }
 }
 
+const registerUser = async (data) => {
+    const hashed = await bcrypt.hash(data.password, 10);
+    const user = await registerModel.create({
+        userName: data.userName,
+        Email: data.Email,
+        password: hashed
+    })
+
+    return user;
+}
+
+const loginUser = async (data) => {
+    const { userName, Email, password } = data;
+
+    const user = await registerModel.findOne({
+        $or: [
+            { userName },
+            { Email },
+        ]
+    })
+
+    if(!user){
+        throw new AppError("Invalid Credentials", 401)
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password)
+
+    if(!isMatch){
+        throw new AppError("Invalid Credentials", 401)
+    }
+
+    return user;
+
+}
 module.exports = {
     createUser,
     getUsers,
     getUser,
     delUser,
-    updateUser
+    updateUser,
+    registerUser,
+    loginUser
 }
