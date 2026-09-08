@@ -83,8 +83,9 @@ const registerUser = async (req, res, next) => {
 
     res.status(201).json({
         message:"User Registered SuccessFully",
-        Username:user.userName,
-        Email:user.Email
+        username:user.username,
+        email:user.email,
+        role:user.role
     })
 }
 
@@ -93,7 +94,8 @@ const loginUser = async (req, res, next) => {
     const user = await userServices.loginUser(req.body)
 
     const token = jwt.sign({
-        id:user._id
+        id:user._id,
+        role:user.role
     },process.env.JWT_SECRET)
 
     res.cookie("token", token)
@@ -102,7 +104,8 @@ const loginUser = async (req, res, next) => {
         message:"User Login Successfully",
         id:user._id,
         name:user.userName,
-        email:user.Email
+        email:user.Email,
+        role:user.role
     })
 }
 

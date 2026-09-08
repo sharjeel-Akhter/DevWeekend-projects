@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt')
 
 
 const createUser = async (data) => {
-    const user = await User.create({
+    const user = await registerModel.create({
         Name: data.Name,
         Email: data.Email
     });
@@ -18,7 +18,7 @@ const createUser = async (data) => {
 }
 
 const getUsers = async () => {
-    const users = await User.find({})
+    const users = await registerModel.find({})
     if(!users){
         throw new AppError("No Users Found!", 404)
     }
@@ -27,7 +27,7 @@ const getUsers = async () => {
 
 const getUser = async (id) => {
 
-        const user =  await User.findById(id)
+        const user =  await registerModel.findById(id)
 
         if(!user){
             throw new AppError("User Not Found!", 404)
@@ -41,7 +41,7 @@ const delUser = async (id) => {
 }
 const updateUser = async (id, message) => {
     try {
-       const user =  await User.findByIdAndUpdate(id, {
+       const user =  await registerModel.findByIdAndUpdate(id, {
             Email:message
         },
     {
@@ -60,21 +60,22 @@ const updateUser = async (id, message) => {
 const registerUser = async (data) => {
     const hashed = await bcrypt.hash(data.password, 10);
     const user = await registerModel.create({
-        userName: data.userName,
-        Email: data.Email,
-        password: hashed
+        username: data.username,
+        email: data.email,
+        password: hashed,
+        role:data.role
     })
 
     return user;
 }
 
 const loginUser = async (data) => {
-    const { userName, Email, password } = data;
+    const { username, email, password, role='user' } = data;
 
     const user = await registerModel.findOne({
         $or: [
-            { userName },
-            { Email },
+            { username },
+            { email },
         ]
     })
 
