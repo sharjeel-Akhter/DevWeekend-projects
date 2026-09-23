@@ -6,19 +6,24 @@ import axios from "axios"
 function App() {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
-  useEffect(()=>{
-    axios.get('http://localhost:8000/users/auth/me', {withCredentials: true})
-    .then((res)=>{setUser(res.data.user); console.log(res.data.user)})
-    .catch((err)=> setUser(null))
-    .finally(()=>setLoading(false))
-  },[])
+  useEffect(() => {
+    axios.get('http://localhost:8000/users/auth/me', { withCredentials: true })
+      .then(async(res) => {
+        setUser(res.data.user);
+        console.log(res); 
+        const resUser = await axios.get(`http://localhost:8000/users/profile/${res.data.user.id}`)
+        setUser(resUser.data.user)
+      })
+      .catch((err) => setUser(null))
+      .finally(() => setLoading(false))
+  }, [])
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/signin' element={<Register />} />
-        <Route path='login' element={<Login />} />
+        <Route path='/login' element={<Login setUser={setUser} />} />
         <Route element={<ProtectedRoute user={user} loading={loading} />}>
           <Route path="/profile" element={<Profile user={user} />} />
         </Route>

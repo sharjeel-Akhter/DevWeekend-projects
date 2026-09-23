@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router'
 const ProtectedRoute = ({ user, loading }) => {
+    console.log(user)
     if (loading) {
         return <p>Checking authentication...</p>
     }

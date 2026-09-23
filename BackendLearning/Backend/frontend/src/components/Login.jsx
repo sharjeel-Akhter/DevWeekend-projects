@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { useNavigate, Link } from 'react-router'
 import axios from 'axios'
-function Login() {
+function Login({ setUser }) {
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm()
@@ -12,9 +12,14 @@ function Login() {
         axios.post('http://localhost:8000/users/login', data, {
             withCredentials: true
         })
-            .then(() => (
+            .then(async () => {
+                const res = await axios.get('http://localhost:8000/users/auth/me',{ withCredentials: true })
+                console.log(res.data.user.id)
+                const resUser = await axios.get(`http://localhost:8000/users/profile/${res.data.user.id}` )
+                console.log(resUser)
+                setUser(resUser.data.user)
                 navigate('/profile')
-            ))
+            })
             .catch((error) => {
                 console.log(error.response?.data?.message)
             })
