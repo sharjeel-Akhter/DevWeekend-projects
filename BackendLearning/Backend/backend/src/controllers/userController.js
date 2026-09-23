@@ -27,7 +27,8 @@ const getUsers = async (req, res, next) => {
 const getUser = async (req, res, next) => {
 
     try {
-        const user = await userServices.getUser(req.user.id)
+        console.log(req.params.id)
+        const user = await userServices.getUser(req.params.id)
         console.log(user)
         res.status(200).json({
             message: "user Fetched SuccessFully",
@@ -118,7 +119,7 @@ const logoutUser = async (req, res, next) => {
 }
 
 const getMe = async (req, res) => {
-    console.log("user REached:")
+
     console.log(req.user)
     res.status(200).json({
         user: req.user
