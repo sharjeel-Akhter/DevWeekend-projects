@@ -3,15 +3,15 @@ const mongoose = require('mongoose')
 const productModel = new mongoose.Schema({
     name: {
         type: String,
-        require: [true, 'Name is Required']
+        required: [true, 'Name is Required']
     },
     description: {
         type: String,
-        require: [true, 'Name is Required']
+        required: [true, 'description is Required']
     },
     price: {
         type: Number,
-        equire: [true, 'Price is Required']
+        required: [true, 'Price is Required']
     },
     ratings: {
         type: Number,
@@ -21,17 +21,17 @@ const productModel = new mongoose.Schema({
         {
             publicID: {
                 type: String,
-                require: true
+                required: true
             },
             url: {
                 type: String,
-                require: true
+                required: true
             }
         }
     ],
     category: {
         type: String,
-        require: [true, 'category is required']
+        required: [true, 'category is required']
     },
     stock: {
         type: Number,
@@ -46,11 +46,11 @@ const productModel = new mongoose.Schema({
         {
             name:{
                 type:String,
-                require:true
+                required:true
             },
             rating:{
                 type:Number,
-                require:true
+                required:true
             },
             comment:{
                 type:String
