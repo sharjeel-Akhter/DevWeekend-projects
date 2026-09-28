@@ -1,15 +1,29 @@
 const mongoose = require("mongoose")
-
+const bcrypt = require('bcrypt')
 const userModel = new mongoose.Schema({
-    Name:{
+    name:{
         type:String,
-        // required:true,  // commented for checking joi validator middleware working
+        unique:[true, "this name already exists"]
     },
-    Email:{
+    email:{
         type:String,
-        // unique:true,
-        // required:true,
+        unique:[true, "this email already exists"]
+    },
+    password:{
+        type:String,
+        required:[true, "Password must be entered"]
+    },
+    url:{
+        type:String
     }
-})
+}, { timestamps:true })
+
+userModel.pre('save', async function(){
+    if(!this.isModified('password'))return;
+
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt)
+});
+
 
 module.exports = mongoose.model("User", userModel)
