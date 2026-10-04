@@ -1,9 +1,25 @@
+const multer = require('multer');
+const uploadFile = require('../utils/storage')
 const asyncHandler = require('../middlewares/asyncHandler')
 const Product = require('../models/product.model')
 const AppError = require('../utils/AppError')
 
+
+
 exports.createProduct = asyncHandler(async (req, res, next) => {
-    const product = await Product.create(req.body)
+
+    const result = await uploadFile(
+        req.file.buffer,
+        req.file.originalname
+    )
+    const product = await Product.create({
+        ...req.body,
+        images:[
+            {
+            url: result.url,
+            publicID: result.fileId
+        }]
+    })
     res.status(201).json({
         message: "Product Created Successfully",
     })
