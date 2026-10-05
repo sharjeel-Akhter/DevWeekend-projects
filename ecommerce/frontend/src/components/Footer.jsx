@@ -12,7 +12,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-950 text-white">
+    <footer className="mt-auto bg-slate-950 text-white w-full">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-14 pb-8">
 
         {/* Top section */}
