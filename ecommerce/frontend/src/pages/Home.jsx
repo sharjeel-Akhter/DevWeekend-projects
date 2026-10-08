@@ -3,7 +3,6 @@ import axios from 'axios'
 import Card from '../components/Card'
 import Loader from '../components/Loader'
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -12,7 +11,6 @@ const Home = () => {
     setLoading(true)
     const fetchData = async () => {
       try {
-        await delay(2000)
         const result = await axios.get('http://localhost:8000/api/v1/product')
         setProducts(result.data.products)
       } catch (error) {
