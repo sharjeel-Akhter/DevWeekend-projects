@@ -12,10 +12,10 @@ const upload = multer({
 })
 router.get('/', getProducts)
 router.post('/', upload.single("images"), createProduct)
+router.get('/:id', getProduct)
 
 router.use(authenticate);
 router.patch('/:id',authorize, updateProduct)
-router.get('/:id', getProduct)
 router.delete('/:id', authorize, deleteProduct)
 
 module.exports = router
