@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Day01Counter from "./dailyChallenges/Day01Counter"
-import Day02Counter from "./dailyChallenges/Day02Counter"
+import Day02Theme from "./dailyChallenges/Day02Theme"
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   const challenges =
     [
       { name: "Day -01 Counter" , component: Day01Counter},
-      { name: "Day -02 Counter", component: Day02Counter}
+      { name: "Day -2 Theme", component: Day02Theme}
     ]
 
     const SelectedComponent = challenges[selected].component
