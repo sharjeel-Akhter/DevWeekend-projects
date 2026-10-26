@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Day02Theme = () => {
   const [theme, setTheme] = useState(false)
+  useEffect(() => {
+      window.document.documentElement.classList.toggle("dark", theme)
 
-  theme ? window.document.documentElement.classList.add("dark") : window.document.documentElement.classList.remove("dark")
-  
+    return () => window.document.documentElement.classList.remove("dark")
+  }, [theme])
+
 
   return (
     <div>
-      <button onClick={()=>setTheme((prev) => !prev)}>{`Toggle Theme`}</button>
+      <button onClick={() => setTheme((prev) => !prev)}>Toggle Theme</button>
     </div>
   )
 }

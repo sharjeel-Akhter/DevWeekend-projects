@@ -33,7 +33,7 @@ button:hover {
   background-color: rgb(200, 215, 215);
 }
 
-.dark{
+.dark body{
   background-color: black;
   color: aliceblue;
 }
