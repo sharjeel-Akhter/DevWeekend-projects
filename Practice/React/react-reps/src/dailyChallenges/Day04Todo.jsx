@@ -1,42 +1,54 @@
 import { useState } from 'react'
 
-function Task({task}) {
-    console.log(task.task)
-  return (
-    <div>
-      <li>{task.task}</li>
-      <button onClick={()=>console.log("Task Completed")}>Completed</button>
-      <button onClick={()=>console.log("Task Deleted")}>Delete</button>
-    </div>
-  )
+function Task({ task, handleDel, toggleTask }) {
+
+
+    return (
+        <div>
+            <li>{task.task}</li>
+            <button onClick={() => toggleTask(task.id)}>{task.completed ? "Undo" : "complete"}</button>
+            <button onClick={()=>handleDel(task.id)}>Delete</button>
+        </div>
+    )
 }
 
 
 const Day04Todo = () => {
 
     const [tasks, setTasks] = useState([])
-    const [form, setForm] = useState({id:"", task:"", completed:false})
+    const [text, setText] = useState("")
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setTasks((prev) => ([...prev, form]))
-        console.log("Form Submitted")
+        if (!text.trim()) return
+
+        const newTask = { id: Date.now(), task: text.trim(), completed: false };
+        setTasks((prev) => ([...prev, newTask]))
+        setText("")
     }
-    console.log(tasks)
+
+    const toggleTask = (id) => {
+        setTasks((prev) => prev.map((task) => task.id === id ? {...task, completed: !task.completed} : task ))
+    }
+
+    const handleDel = (id) => {
+        setTasks((prev) => prev.filter((task)=> task.id != id))
+    }
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input value={form} onChange={(e) => setForm(e.target.value)} type="text" placeholder='Add a Task' />
+                <input value={text} onChange={(e) => setText(e.target.value)} type="text" placeholder='Add a Task' />
                 <button type='submit'>Add</button>
             </form>
 
-        <ul>
-            {
-                tasks.map((task, index)=>(
-                    <Task key={task.id} task={task}/>
-                ))
-            }
-        </ul>
+            <ul>
+                {
+                    tasks.map((task, index) => (
+                        <Task key={task.id} task={task} handleDel={handleDel} toggleTask={toggleTask}/>
+                    ))
+                }
+            </ul>
         </>
     )
 }
