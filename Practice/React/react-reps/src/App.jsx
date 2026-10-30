@@ -1,34 +1,31 @@
-import { useState } from "react"
-import Day01Counter from "./dailyChallenges/Day01Counter"
-import Day02Theme from "./dailyChallenges/Day02Theme"
-import Day03Form from "./dailyChallenges/Day03Form"
-import Day04Todo from "./dailyChallenges/Day04Todo"
+import { useState, lazy, Suspense } from "react"
 
+const challenges =
+  [
+    { name: "Day -01 Counter", component: lazy(() => import("./dailyChallenges/Day01Counter")) },
+    { name: "Day -02 Theme", component: lazy(() => import("./dailyChallenges/Day02Theme")) },
+    { name: "Day -03 Form", component: lazy(() => import("./dailyChallenges/Day03Form")) },
+    { name: "Day -04 Todo", component: lazy(() => import("./dailyChallenges/Day04Todo")) },
+    { name: "Day -05 Accord", component: lazy(() => import("./dailyChallenges/Day05Accord")) }
+  ]
 
 function App() {
-  
+
   const [selected, setSelected] = useState(0)
-
-  const challenges =
-    [
-      { name: "Day -01 Counter" , component: Day01Counter},
-      { name: "Day -02 Theme", component: Day02Theme},
-      { name: "Day -03 Form", component: Day03Form},
-      { name: "Day -04 Todo", component: Day04Todo}
-    ]
-
-    const SelectedComponent = challenges[selected].component
+  const SelectedComponent = challenges[selected].component
 
   return (
     <div>
       <nav>
         {
-          challenges.map( (challenge, index) => (
+          challenges.map((challenge, index) => (
             <button key={index} onClick={() => setSelected(index)}>{challenge.name}</button>
           ))}
       </nav>
 
-      <SelectedComponent />
+      <Suspense fallback={<p>Loading...</p>}>
+        <SelectedComponent />
+      </Suspense>
 
     </div>
   )
