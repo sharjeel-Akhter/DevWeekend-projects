@@ -4,7 +4,7 @@ const Day05Accord = () => {
   return (
     <div>
       FAQ's 
-      
+      <li></li>
     </div>
   )
 }
