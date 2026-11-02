@@ -37,3 +37,8 @@ button:hover {
   background-color: black;
   color: aliceblue;
 }
+
+nav button.active {
+  background-color: black;
+  color: white;
+}

@@ -10,7 +10,6 @@ const challenges =
   ]
 
 function App() {
-
   const [selected, setSelected] = useState(0)
   const SelectedComponent = challenges[selected].component
 
@@ -19,7 +18,7 @@ function App() {
       <nav>
         {
           challenges.map((challenge, index) => (
-            <button key={index} onClick={() => setSelected(index)}>{challenge.name}</button>
+            <button key={index} onClick={() => setSelected(index)} className={selected === index ? "active" : ""}>{challenge.name}</button>
           ))}
       </nav>
 
