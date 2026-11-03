@@ -6,7 +6,8 @@ const challenges =
     { name: "Day -02 Theme", component: lazy(() => import("./dailyChallenges/Day02Theme")) },
     { name: "Day -03 Form", component: lazy(() => import("./dailyChallenges/Day03Form")) },
     { name: "Day -04 Todo", component: lazy(() => import("./dailyChallenges/Day04Todo")) },
-    { name: "Day -05 Accord", component: lazy(() => import("./dailyChallenges/Day05Accord")) }
+    { name: "Day -05 Accord", component: lazy(() => import("./dailyChallenges/Day05Accord")) },
+    { name: "Day -08 Effect", component: lazy(() => import("./dailyChallenges/Day08Effect")) }
   ]
 
 function App() {
