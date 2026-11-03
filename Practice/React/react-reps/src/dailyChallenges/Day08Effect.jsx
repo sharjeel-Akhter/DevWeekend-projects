@@ -6,6 +6,8 @@ const Day08Effect = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
+    const [searchKey, setSearchKey] = useState("")
+
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true)
@@ -22,6 +24,8 @@ const Day08Effect = () => {
         fetchData();
     }, [])
 
+    const  filteredUsers = users.filter(user => user.name.toLowerCase().includes(searchKey.trim().toLowerCase()));
+
     if(loading){
        return <div>Loading...</div>
     }
@@ -30,9 +34,12 @@ const Day08Effect = () => {
     }
     return (
         <div>
-            Users List
-        { 
-            users.map((user) => <li key={user.id}>{user.name}</li>)
+            Users List <br />
+            <input type="text" value={searchKey} placeholder="Search User" onChange={(e) => setSearchKey(e.target.value)}/>
+            <br />
+            {filteredUsers.length === 0 && <p>No users found</p>}
+        {
+            filteredUsers.map((user) => <li key={user.id}>{user.name}</li>)
         } 
         </div>
     )
