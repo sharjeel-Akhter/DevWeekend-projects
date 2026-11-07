@@ -1,13 +1,14 @@
 import { useState } from 'react'
+import useLocalStorage from '../Hooks/useLocalStorage'
 
 function Task({ task, handleDel, toggleTask }) {
-
-
+     
+    
     return (
         <div>
             <li>{task.task}</li>
             <button onClick={() => toggleTask(task.id)}>{task.completed ? "Undo" : "complete"}</button>
-            <button onClick={()=>handleDel(task.id)}>Delete</button>
+            <button onClick={() => handleDel(task.id)}>Delete</button>
         </div>
     )
 }
@@ -15,7 +16,7 @@ function Task({ task, handleDel, toggleTask }) {
 
 const Day04Todo = () => {
 
-    const [tasks, setTasks] = useState([])
+    const [tasks, setTasks] = useLocalStorage("todo", [])
     const [text, setText] = useState("")
 
 
@@ -29,11 +30,11 @@ const Day04Todo = () => {
     }
 
     const toggleTask = (id) => {
-        setTasks((prev) => prev.map((task) => task.id === id ? {...task, completed: !task.completed} : task ))
+        setTasks((prev) => prev.map((task) => task.id === id ? { ...task, completed: !task.completed } : task))
     }
 
     const handleDel = (id) => {
-        setTasks((prev) => prev.filter((task)=> task.id != id))
+        setTasks((prev) => prev.filter((task) => task.id != id))
     }
     return (
         <>
@@ -45,7 +46,7 @@ const Day04Todo = () => {
             <ul>
                 {
                     tasks.map((task, index) => (
-                        <Task key={task.id} task={task} handleDel={handleDel} toggleTask={toggleTask}/>
+                        <Task key={task.id} task={task} handleDel={handleDel} toggleTask={toggleTask} />
                     ))
                 }
             </ul>

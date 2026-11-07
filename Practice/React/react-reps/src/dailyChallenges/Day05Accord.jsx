@@ -1,4 +1,5 @@
 import { useState } from "react"
+import useLocalStorage from "../Hooks/useLocalStorage"
 
 const list = [
   {id: 1, question: "what is react?", answer: "react is a javascript library for building user interfaces"},
@@ -20,7 +21,7 @@ function Accordion({ qs, onToggle, isOpen }){
   )
 }
 const Day05Accord = () => {
-  const [openId, setOpenId] = useState(null)
+  const [openId, setOpenId] = useLocalStorage("AccorId", null)
 
   const onToggle = (id) => {
     setOpenId(() => openId === id ? null : id)

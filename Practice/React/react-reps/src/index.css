@@ -59,3 +59,8 @@ nav button.active {
   background-color: black;
   color: white;
 }
+
+.buttonsDiv{
+  display: flex;
+  gap: 8px;
+}

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import useLocalStorage from '../Hooks/useLocalStorage'
 
 const Day02Theme = () => {
-  const [theme, setTheme] = useState(false)
+  const [theme, setTheme] = useLocalStorage("bodyTheme",false)
   useEffect(() => {
       window.document.documentElement.classList.toggle("dark", theme)
 
@@ -11,7 +12,7 @@ const Day02Theme = () => {
 
   return (
     <div>
-      <button onClick={() => setTheme((prev) => !prev)}>Toggle Theme</button>
+      <button onClick={() => setTheme((prev) => !prev)}>{theme ? 'Toggle to default' : 'Toggle to Dark'}</button>
     </div>
   )
 }

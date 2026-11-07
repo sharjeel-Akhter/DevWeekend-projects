@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import useLocalStorage from '../Hooks/useLocalStorage'
 
 const Day03Form = () => {
-    const [form, setForm] = useState({ name: "", price: ""})
+    const [form, setForm] = useLocalStorage("form",{ name: "", price: ""})
 
     const handleForm = (e) => {
         setForm((prev) => ({...prev, [e.target.name]: e.target.value}))
+        
     }
   return (
     <div>
