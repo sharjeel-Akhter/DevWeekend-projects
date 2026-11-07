@@ -10,7 +10,24 @@ body {
   margin: 0 auto;
   padding: 20px;
 }
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; 
+}
 
+header div{
+  padding: 4px;
+  border-radius: 3px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+header div:hover{
+  background-color: rgb(155, 144, 144);
+}
 nav {
   display: flex;
   flex-wrap: wrap;

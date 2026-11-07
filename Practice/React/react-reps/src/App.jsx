@@ -15,19 +15,25 @@ function App() {
   const SelectedComponent = challenges[selected].component
 
   return (
-    <div>
-      <nav>
-        {
-          challenges.map((challenge, index) => (
-            <button key={index} onClick={() => setSelected(index)} className={selected === index ? "active" : ""}>{challenge.name}</button>
-          ))}
-      </nav>
+    <>
+      <header>
+        <p>React-Reps</p>
+        <div>Open Modal</div>
+      </header>
+      <div>
+        <nav>
+          {
+            challenges.map((challenge, index) => (
+              <button key={index} onClick={() => setSelected(index)} className={selected === index ? "active" : ""}>{challenge.name}</button>
+            ))}
+        </nav>
 
-      <Suspense fallback={<p>Loading...</p>}>
-        <SelectedComponent />
-      </Suspense>
+        <Suspense fallback={<p>Loading...</p>}>
+          <SelectedComponent />
+        </Suspense>
 
-    </div>
+      </div>
+    </>
   )
 }
 

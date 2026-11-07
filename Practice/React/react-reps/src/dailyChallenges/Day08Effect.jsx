@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import useDebounce from "../Hooks/useDebounce";
+import useLocalStorage from "../Hooks/useLocalStorage";
 
 const Day08Effect = () => {
-    const [users, setUsers] = useState([]);
+    const {storage, setData} = useLocalStorage();
+    const [users, setUsers] = useState(storage ? storage : []);
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
@@ -11,12 +13,14 @@ const Day08Effect = () => {
 
     const debounced = useDebounce(searchKey, 500)
 
+
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true)
             try {
                 const result = await axios.get("https://jsonplaceholder.typicode.com/users")
-                setUsers(result.data) 
+                setUsers(result.data)
+                setData(result.data)
             } catch (err) {
                 console.log(err)
                 setError(err.message)
