@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import useDebounce from "../Hooks/useDebounce";
 
 const Day08Effect = () => {
     const [users, setUsers] = useState([]);
@@ -7,6 +8,8 @@ const Day08Effect = () => {
     const [error, setError] = useState(null)
 
     const [searchKey, setSearchKey] = useState("")
+
+    const debounced = useDebounce(searchKey, 500)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,8 +27,11 @@ const Day08Effect = () => {
         fetchData();
     }, [])
 
-    const  filteredUsers = users.filter(user => user.name.toLowerCase().includes(searchKey.trim().toLowerCase()));
-
+    // const  filteredUsers = users.filter(user => user.name.toLowerCase().includes(searchKey.trim().toLowerCase()));
+    
+    //Debounced Search Day 10
+    const  filteredUsers = users.filter(user => user.name.toLowerCase().includes(debounced.trim().toLowerCase()));
+    console.log(debounced)
     if(loading){
        return <div>Loading...</div>
     }
