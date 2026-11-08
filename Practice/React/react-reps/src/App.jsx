@@ -1,5 +1,6 @@
 import { useState, lazy, Suspense } from "react"
 import Modal from "./components/Modal";
+import ThemeProvider from "./contexts/useTheme";
 
 const challenges =
   [
@@ -8,7 +9,8 @@ const challenges =
     { name: "Day -03 Form", component: lazy(() => import("./dailyChallenges/Day03Form")) },
     { name: "Day -04 Todo", component: lazy(() => import("./dailyChallenges/Day04Todo")) },
     { name: "Day -05 Accord", component: lazy(() => import("./dailyChallenges/Day05Accord")) },
-    { name: "Day -08 Effect", component: lazy(() => import("./dailyChallenges/Day08Effect")) }
+    { name: "Day -08 Effect", component: lazy(() => import("./dailyChallenges/Day08Effect")) },
+    { name: "Day -11 Theme Context", component: lazy(() => import("./dailyChallenges/Day11ThemeContext")) },
   ]
 
 function App() {
@@ -18,7 +20,8 @@ function App() {
 
 
   return (
-    <>
+    <ThemeProvider>
+    
     { isOpen && <Modal setIsOpen={setIsOpen}/> }
       <header>
         <p>React-Reps</p>
@@ -37,7 +40,7 @@ function App() {
         </Suspense>
 
       </div>
-    </>
+    </ThemeProvider>
   )
 }
 

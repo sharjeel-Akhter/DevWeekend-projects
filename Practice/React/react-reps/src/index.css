@@ -44,13 +44,20 @@ button {
   padding: 10px;
   cursor: pointer;
   border-radius: 5px;
+  margin-right: 4px;
+  margin-left: 2px;
 }
 
 button:hover {
   background-color: rgb(200, 215, 215);
 }
 
+
 .dark body{
+  background-color: black;
+  color: aliceblue;
+}
+.dark{
   background-color: black;
   color: aliceblue;
 }
