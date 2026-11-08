@@ -1,4 +1,5 @@
 import { useState, lazy, Suspense } from "react"
+import Modal from "./components/Modal";
 
 const challenges =
   [
@@ -13,12 +14,15 @@ const challenges =
 function App() {
   const [selected, setSelected] = useState(0)
   const SelectedComponent = challenges[selected].component
+  const [isOpen, setIsOpen] = useState(false);
+
 
   return (
     <>
+    { isOpen && <Modal setIsOpen={setIsOpen}/> }
       <header>
         <p>React-Reps</p>
-        <div>Open Modal</div>
+        <div onClick={() => setIsOpen(true)}>Open Modal</div>
       </header>
       <div>
         <nav>
