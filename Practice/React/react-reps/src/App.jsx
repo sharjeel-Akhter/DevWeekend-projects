@@ -11,6 +11,7 @@ const challenges =
     { name: "Day -05 Accord", component: lazy(() => import("./dailyChallenges/Day05Accord")) },
     { name: "Day -08 Effect", component: lazy(() => import("./dailyChallenges/Day08Effect")) },
     { name: "Day -11 Theme Context", component: lazy(() => import("./dailyChallenges/Day11ThemeContext")) },
+    { name: "Day -12 Cart Context", component: lazy(() => import("./dailyChallenges/Day12CartContext")) },
   ]
 
 function App() {
