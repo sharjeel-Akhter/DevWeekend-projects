@@ -44,7 +44,7 @@ const Day08Effect = () => {
     return (
         <div>
             Users List <br />
-            <input type="text" value={searchKey} placeholder="Search User" onChange={(e) => setSearchKey(e.target.value)} />
+            <input type="text" value={searchKey} placeholder="Search User" autoFocus="on" className="border-amber-50 border-2" onChange={(e) => setSearchKey(e.target.value)} />
             <br />
             {filteredUsers.length === 0 && <p>No users found</p>}
 

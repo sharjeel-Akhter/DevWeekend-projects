@@ -15,7 +15,7 @@ const Day02Theme = () => {
   const {theme, toggleTheme} = useTheme()
   console.log(theme)
   return (
-    <div>
+    <div className='buttonsDiv'>
       <button onClick={() => toggleTheme()}>{theme != "light" ? 'Toggle to default' : 'Toggle to Dark'}</button>
     </div>
   )

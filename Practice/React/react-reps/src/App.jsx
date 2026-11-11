@@ -27,6 +27,7 @@ function App() {
       <header>
         <p>React-Reps</p>
         <div onClick={() => setIsOpen(true)}>Open Modal</div>
+        <h3>Cart-Items-Count:</h3>
       </header>
       <div>
         <nav>

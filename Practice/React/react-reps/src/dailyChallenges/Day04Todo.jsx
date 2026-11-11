@@ -5,7 +5,7 @@ function Task({ task, handleDel, toggleTask }) {
      
     
     return (
-        <div>
+        <div className='buttonsDiv'>
             <li>{task.task}</li>
             <button onClick={() => toggleTask(task.id)}>{task.completed ? "Undo" : "complete"}</button>
             <button onClick={() => handleDel(task.id)}>Delete</button>
@@ -38,8 +38,8 @@ const Day04Todo = () => {
     }
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input value={text} onChange={(e) => setText(e.target.value)} type="text" placeholder='Add a Task' />
+            <form onSubmit={handleSubmit} className='buttonsDiv'>
+                <input value={text} onChange={(e) => setText(e.target.value)} type="text" placeholder='Add a Task' autoFocus="on" className='border-amber-50 border-2 mr-1'/>
                 <button type='submit'>Add</button>
             </form>
 

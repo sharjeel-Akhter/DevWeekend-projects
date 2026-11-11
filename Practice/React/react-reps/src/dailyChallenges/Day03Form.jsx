@@ -9,7 +9,7 @@ const Day03Form = () => {
         
     }
   return (
-    <div>
+    <div className='buttonsDiv'>
       <form>
         <input name='name' value={form.name} onChange={handleForm} type="text"  placeholder='Add name'/>
         <input name='price' value={form.price} onChange={handleForm} type="number" placeholder='Add price' />

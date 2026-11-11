@@ -12,7 +12,7 @@ function Accordion({ qs, onToggle, isOpen }){
 
   return (
     <div>
-      <h2 onClick={onToggle}>{qs.question}</h2>
+      <h2 onClick={onToggle} className="font-bold text-xl cursor-pointer">{qs.question}</h2>
       {
         isOpen && <p>{qs.answer}</p>
         
@@ -27,7 +27,7 @@ const Day05Accord = () => {
     setOpenId(() => openId === id ? null : id)
   }
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       FAQ's
       {
         list.map((qs) => (

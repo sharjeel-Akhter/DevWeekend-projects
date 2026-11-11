@@ -39,7 +39,7 @@ nav {
   margin-bottom: 8px;
 }
 
-nav button {
+nav button, .buttonsDiv button {
   background-color: rgb(246, 250, 250);
   color: black;
   border: none;
@@ -50,7 +50,7 @@ nav button {
   margin-left: 2px;
 }
 
-nav button:hover {
+nav button:hover, .buttonsDiv button:hover {
   background-color: rgb(200, 215, 215);
 }
 
@@ -69,10 +69,6 @@ nav button.active {
   color: white;
 }
 
-.buttonsDiv{
-  display: flex;
-  gap: 8px;
-}
 
 .overlay{
   position: absolute;

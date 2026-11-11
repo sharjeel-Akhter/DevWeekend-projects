@@ -3,7 +3,7 @@ import { useTheme } from "../contexts/useTheme"
 const Day11ThemeContext = () => {
     const {toggleTheme} = useTheme()
   return (
-    <div>
+    <div className="buttonsDiv">
       <button onClick={() => toggleTheme()}>Change Theme</button>
     </div>
   )

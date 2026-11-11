@@ -12,7 +12,7 @@ const ProductCard = ({product}) => {
                 {
                     isAdded ? <button className='px-5 py-2  rounded-lg mt-2 bg-red-800 text-white hover:bg-red-900'>Added to Cart</button>
                         :
-                        <button  className="px-5 py-3  rounded-lg mt-2 bg-blue-600 text-white hover:bg-blue-500 duration-200">Add To Cart</button>
+                        <button  className="px-5 py-3  rounded-lg mt-2 bg-blue-600 cursor-pointer text-white hover:bg-blue-500 duration-200">Add To Cart</button>
                 }
 
             </div>
