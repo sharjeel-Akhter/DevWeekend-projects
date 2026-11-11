@@ -1,6 +1,8 @@
 import { useState, lazy, Suspense } from "react"
 import Modal from "./components/Modal";
 import ThemeProvider from "./contexts/useTheme";
+import CartProvider from "./contexts/useCartContext";
+import Header from "./components/Header";
 
 const challenges =
   [
@@ -22,26 +24,23 @@ function App() {
 
   return (
     <ThemeProvider>
-    
-    { isOpen && <Modal setIsOpen={setIsOpen}/> }
-      <header>
-        <p>React-Reps</p>
-        <div onClick={() => setIsOpen(true)}>Open Modal</div>
-        <h3>Cart-Items-Count:</h3>
-      </header>
-      <div>
-        <nav>
-          {
-            challenges.map((challenge, index) => (
-              <button key={index} onClick={() => setSelected(index)} className={selected === index ? "active" : ""}>{challenge.name}</button>
-            ))}
-        </nav>
+      <CartProvider>
+        {isOpen && <Modal setIsOpen={setIsOpen} />}
+        <Header setIsOpen={setIsOpen} />
+        <div>
+          <nav>
+            {
+              challenges.map((challenge, index) => (
+                <button key={index} onClick={() => setSelected(index)} className={selected === index ? "active" : ""}>{challenge.name}</button>
+              ))}
+          </nav>
 
-        <Suspense fallback={<p>Loading...</p>}>
-          <SelectedComponent />
-        </Suspense>
+          <Suspense fallback={<p>Loading...</p>}>
+            <SelectedComponent />
+          </Suspense>
 
-      </div>
+        </div>
+      </CartProvider>
     </ThemeProvider>
   )
 }

@@ -1,9 +1,8 @@
 import { createContext, useContext, useState } from "react";
 
-
 const CartContext = createContext();
 
-export default function CartProvider( {Children} ){
+export default function CartProvider( {children} ){
     const [cartItems, setCartItems] = useState([])
     
     const addToCart = (product) => {
@@ -11,12 +10,12 @@ export default function CartProvider( {Children} ){
     }
 
     const delFromCart = (id) => {
-        setCartItems((prev) => prev.filter((item) => item.id === id))
+        setCartItems((prev) => prev.filter((item) => item.id !== id))
     }
 
     return(
         <CartContext.Provider value={ {cartItems, addToCart, delFromCart} }>
-            {Children}
+            {children}
         </CartContext.Provider>
     )
 }
